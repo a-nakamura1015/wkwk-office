@@ -1,0 +1,37 @@
+header {
+  display: flex; /* ヘッダーをフレックスボックスに設定 */
+  justify-content: space-between; /* ヘッダー内の要素を両端に配置 */
+  align-items: center; /* 要素を中央揃え */
+  background-color: #333; /* ヘッダーの背景色 */
+  color: white; /* ヘッダー内のテキスト色 */
+  padding: 10px 20px; /* ヘッダーの内側余白 */
+}
+
+.header-left h1 {
+  margin: 0; /* タイトルの余白をなくす */
+}
+
+.header-right {
+  display: flex; /* 右側の要素をフレックスボックスに設定 */
+  align-items: center; /* 要素を中央揃え */
+}
+
+#userIcon {
+  width: 30px; /* アイコンの幅 */
+  height: 30px; /* アイコンの高さ */
+  border-radius: 50%; /* アイコンを円形にする */
+  margin-right: 10px; /* アイコンの右の余白 */
+}
+
+#userDisplayName, #loginButton, #logoutButton {
+  margin-left: 10px; /* 名前とボタンの左の余白 */
+  padding: 10px;
+}
+#loginButton, #logoutButton {
+  color: #fff;
+  background-color: #3e3e3e;
+}
+
+.link-container {
+  padding: 10px;
+}

@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* ボディのフォント設定 */
+}
+
+body, html {
+  height: 100%; /* ページ全体の高さを画面サイズに合わせる */
+  margin: 0;
+  overflow: hidden; /* スクロールを防止 */
+}
+
+.attendance-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 中央に配置 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素を中央寄せ */
+}
+
+.date-display {
+  font-size: 40px; /* 日付のフォントサイズ */
+  margin-bottom: 10px; /* 下の余白 */
+}
+
+.time-display {
+  font-size: 100px; /* 時刻のフォントサイズ */
+}
+
+.date-display, .time-display {
+  margin: 0 auto; /* 中央寄せ */
+}
+
+.date-display, .time-display {
+  margin: 0 auto; /* 中央寄せ */
+}
+
+#startWork, #endWork {
+  font-size: 20px; /* フォントサイズを大きく */
+  padding: 15px 30px; /* パディングを大きく */
+  cursor: pointer; /* カーソルをポインターに */
+  border: none; /* 境界線なし */
+  border-radius: 5px; /* 角丸の設定 */
+  color: white; /* テキスト色 */
+  background-color: #007bff; /* ボタンの背景色 */
+  transition: background-color 0.3s; /* 背景色の変更を滑らかに */
+  display: inline-block; /* ボタンをインラインブロック要素として表示 */
+  margin-top: 50px; /* ボタンの上部のマージンを設定 */
+}
+
+#startWork:hover, #endWork:hover {
+  background-color: #0056b3; /* ホバー時の背景色 */
+}
+
+#startWork:disabled, #endWork:disabled {
+  background: #ccc;
+}
