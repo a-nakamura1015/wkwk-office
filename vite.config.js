@@ -1,16 +1,17 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 
 export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: 'index.html',
-        attendanceList: 'attendance-list.html'
+        main: path.resolve(__dirname, 'index.html'),
+        attendanceList: path.resolve(__dirname, 'attendance-list.html'),
       }
     },
     outDir: 'dist',
   },
   server: {
-    open: '/index.html' // サーバー起動時に自動で開くページを指定
+    open: '/index.html'
   }
 });
