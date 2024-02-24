@@ -31,18 +31,19 @@ export function checkAttendance() {
     });
     // 出勤データがあり、退勤データがない場合「退勤」ボタンを表示し、「出勤」ボタンを非表示にする
     if (isWorkStarted && !isWorkEnded) {
-      document.getElementById('startWork').style.display = 'none';
-      document.getElementById('endWork').style.display = 'block';
-      document.getElementById('endWork').disabled = false; // 退勤ボタンを活性化
+      // 出勤データがあって、退勤データがない場合は「退勤」ボタンを活性化して表示
+      // TODO: STEP2 出勤ボタンを非表示にする
+      // TODO: STEP2 退勤ボタンを表示する
+      // TODO: STEP2 退勤ボタンをクリックできるようにする（活性化する）
     } else if (isWorkEnded) {
       // 退勤データがある場合は「退勤」ボタンを非活性で表示
-      document.getElementById('startWork').style.display = 'none';
-      document.getElementById('endWork').style.display = 'block';
-      document.getElementById('endWork').disabled = true; // 退勤ボタンを非活性化
+      // TODO: STEP2 出勤ボタンを非表示にする
+      // TODO: STEP2 退勤ボタンを表示する
+      // TODO: STEP2 退勤ボタンをクリックできなくする（非活性化する）
     } else {
       // 出勤データも退勤データもない場合
-      document.getElementById('startWork').style.display = 'block';
-      document.getElementById('endWork').style.display = 'none';
+      // TODO: STEP2 出勤ボタンを表示する
+      // TODO: STEP2 退勤ボタンを非表示にする
     }
 
   }).catch((error) => {

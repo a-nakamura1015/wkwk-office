@@ -49,15 +49,11 @@ auth.onAuthStateChanged(async (user) => {
 
 // 前月または次月へ切り替える関数
 async function changeMonth(change) {
-  currentMonth += change;
+  // TODO: STEP3 保持している月数に change 分を加算する
   // 年の境界を超える場合の処理
-  if (currentMonth < 0) {
-    currentYear -= 1;
-    currentMonth = 11; // 12月に設定
-  } else if (currentMonth > 11) {
-    currentYear += 1;
-    currentMonth = 0; // 1月に設定
-  }
+  // TODO: STEP3 保持している月数が0未満の場合は、保持している年数を１減らし、保持している月数を11にする
+  // TODO: STEP3 保持している月数が11を超える場合は、保持している年数を１増やし、保持している月数を0にする
+
   // 年月表示と勤怠一覧の更新
   updateYearMonthDisplay();
   await displayAttendanceRecords(auth.currentUser); // 更新された年月で勤怠一覧を再表示
@@ -116,15 +112,15 @@ async function displayAttendanceRecords(user) {
   
       // 曜日のセル
       const tdDayOfWeek = document.createElement('td');
-      tdDayOfWeek.textContent = dayOfWeek;
+      // TODO: STEP3 曜日のセルに日本語の曜日を表示する
       
       // 出勤時間のセル
       const tdStartTime = document.createElement('td');
-      tdStartTime.textContent = record.startTime || '';
+      // TODO: STEP3 出勤時間のセルに出勤時間を表示する
   
       // 退勤時間のセル
       const tdEndTime = document.createElement('td');
-      tdEndTime.textContent = record.endTime || '';
+      // TODO: STEP3 退勤時間のセルに退勤時間を表示する
       
       // 曜日によってスタイルを変更
       if (dayOfWeek === "土") {
@@ -138,7 +134,7 @@ async function displayAttendanceRecords(user) {
       const editButton = document.createElement('button');
       editButton.textContent = '編集';
       editButton.addEventListener('click', () => {
-        showDialog(dateFormatted, record.startTime || '', record.endTime || '');
+        // TODO: STEP3 ダイアログを表示する関数を呼び出す
       });
       tdEdit.appendChild(editButton);
   
@@ -159,10 +155,10 @@ async function displayAttendanceRecords(user) {
 
 // ダイアログを表示する関数
 function showDialog(date, startTime, endTime) {
-  document.getElementById('editDate').value = date;
-  document.getElementById('editStartTime').value = startTime;
-  document.getElementById('editEndTime').value = endTime;
-  document.getElementById('editDialog').style.display = "block";
+  // TODO: STEP4 対象行の日付をダイアログに表示する
+  // TODO: STEP4 対象行の出勤時刻をダイアログに表示する
+  // TODO: STEP4 対象行の退勤時刻をダイアログに表示する
+  // TODO: STEP4 非表示になっているダイアログを表示する
 }
 
 // Firestoreのデータを更新する関数
@@ -172,19 +168,16 @@ async function callRegisterAttendance() {
   const endTime = document.getElementById('editEndTime').value;
 
   // 出勤時間と退勤時間が入力されているかチェック
-  if (!startTime || !endTime) {
-    alert('出勤時間と退勤時間を両方入力してください。');
-    return; // 処理を中断
-  }
+  // TODO: STEP4 出勤時刻、または退勤時刻が入力されていない場合はアラートで以下のメッセージを表示し、処理を中断する
+  // 表示するメッセージ：出勤時間と退勤時間を両方入力してください。
+
   // 出勤時間が退勤時間よりも前であるかチェック
-  if (startTime >= endTime) {
-    alert('出勤時間は退勤時間よりも前でなければなりません。');
-    return; // 処理を中断
-  }
- 
+  // TODO: STEP4 出勤時刻が退勤時刻を超えている場合はアラートで以下のメッセージを表示し、処理を中断する
+  // 表示するメッセージ：出勤時間は退勤時間よりも前でなければなりません。
+
   try {
     await registerAttendance(date, startTime, '出勤');
-    await registerAttendance(date, endTime, '退勤');
+    // TODO: STEP4 退勤処理を行う
     closeDialog(); // ダイアログを閉じる
     displayAttendanceRecords(auth.currentUser); // 勤怠一覧を再表示
     window.location.href = 'attendance-list.html';

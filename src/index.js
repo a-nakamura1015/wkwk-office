@@ -13,7 +13,7 @@ function updateDateTime() {
 // DOMがロードされた後に実行される処理
 document.addEventListener('DOMContentLoaded', async () => {
   // 各ボタンにイベントリスナーを設定
-  document.getElementById('loginButton').addEventListener('click', googleLogin);
+  // TODO: STEP1 ログインボタンをクリックした際に googleLogin 関数を呼び出す
   document.getElementById('logoutButton').addEventListener('click', googleLogout);
   document.getElementById('startWork').addEventListener('click', async() => await startWork());
   document.getElementById('endWork').addEventListener('click', async() => await endWork());
@@ -27,20 +27,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (user) {
       // ユーザーがログインしている場合
       updateUserUI(user);
-      document.getElementById('loginButton').style.display = 'none'; // ログインボタンを非表示
-      document.getElementById('logoutButton').style.display = 'block'; // ログアウトボタンを表示
+      // TODO: STEP1 ログインボタンを非表示にする
+      // TODO: STEP1 ログアウトボタンを表示する
       document.getElementById('attendanceLink').style.display = 'block'; // 「勤怠一覧」リンクを表示
 
-      checkAttendance(); // ログイン状態が確定した後に実行
+      checkAttendance(); // ログイン状態が確定した後に実行（出勤ボタンと退勤ボタンを表示する）
 
     } else {
       // ユーザーがログアウトしている場合
       updateUserUI(null);
-      document.getElementById('loginButton').style.display = 'block'; // ログインボタンを表示
-      document.getElementById('logoutButton').style.display = 'none'; // ログアウトボタンを非表示
+      // TODO: STEP1 ログインボタンを表示する
+      // TODO: STEP1 ログアウトボタンを非表示にする　
       document.getElementById('attendanceLink').style.display = 'none'; // 「勤怠一覧」リンクを非表示
-      document.getElementById('startWork').style.display = 'none'; // 「出勤」ボタンを非表示
-      document.getElementById('endWork').style.display = 'none'; // 「退勤」ボタンを非表示
+      // TODO: STEP1 出勤ボタンを非表示にする
+      // TODO: STEP1 退勤ボタンを非表示にする
     }
   });
 });
