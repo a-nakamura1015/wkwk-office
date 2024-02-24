@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/attendance-list.html",
+        "destination": "/attendance-list.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
